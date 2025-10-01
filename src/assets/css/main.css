@@ -1,7 +1,10 @@
-.header {
-  color: green;
-}
+@import 'browser-base.css';
+@import 'base.css';
 
-body {
-  color: red;
-}
+@import 'grid.css';
+
+@import 'components/header.css';
+
+@import 'atoms.css';
+
+@import 'heap.css';
