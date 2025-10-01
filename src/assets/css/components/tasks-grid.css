@@ -1,0 +1,9 @@
+.tasks-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: .5rem;
+}
+
+.tasks-grid__col__title {
+  text-align: center;
+}
