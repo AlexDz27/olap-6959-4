@@ -1,0 +1,17 @@
+.tasks-list {
+  list-style: none;
+}
+.tasks-list .tasks-list__task {
+  margin-bottom: .4rem;
+}
+.tasks-list .tasks-list__task:last-child {margin-bottom: 0;}
+
+.tasks-list__task {
+  border: 1px solid black;
+  border-radius: 0.4rem;
+  padding: 0.25rem;
+}
+.tasks-list__task--done {
+  text-decoration: line-through;
+  opacity: .5;
+}

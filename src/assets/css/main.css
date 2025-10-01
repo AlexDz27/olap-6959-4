@@ -5,6 +5,7 @@
 
 @import 'components/header.css';
 @import 'components/tasks-grid.css';
+@import 'components/tasks-list.css';
 
 @import 'atoms.css';
 
