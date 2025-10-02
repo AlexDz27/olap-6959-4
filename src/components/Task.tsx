@@ -1,10 +1,11 @@
 interface TaskProps {
   text: string;
+  status: 'pending' | 'inProgress' | 'done'
 }
 
-function Task({ text }: TaskProps) {
+function Task({ text, status = 'pending' }: TaskProps) {
   return (
-    <li className="tasks-list__task" contentEditable>{text}</li>
+    <li className={`task ${status === 'done' ? 'task--done' : ''}`} contentEditable>{text}</li>
   )
 }
 
