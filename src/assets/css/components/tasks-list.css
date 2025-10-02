@@ -15,6 +15,9 @@
 .tasks-list__task:hover {
   outline: 2px solid #297df9;
 }
+.tasks-list__task:focus {
+  outline: 2px solid #297df9;
+}
 .tasks-list__task--done {
   text-decoration: line-through;
   opacity: .5;
