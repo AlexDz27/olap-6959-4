@@ -1,15 +1,15 @@
 function AddTask() {
   return (
     <input
-      className="add-task-input"
-      placeholder="What needs to be done?"
       onKeyDown={handleAddingTask}
+      placeholder="What needs to be done?"
+      className="add-task-input"
     />
   )
 
   function handleAddingTask(evt: React.KeyboardEvent<HTMLInputElement>) {
     if (evt.key === 'Enter') {
-      console.log('enter pressed')
+      console.log('enter pressed. todo: handle adding task')
     }
   }
 }
