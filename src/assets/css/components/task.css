@@ -17,6 +17,9 @@
   opacity: .5;
 }
 
+.add-task-cont {
+  position: relative;
+}
 .add-task-input {
   border-radius: 0.4rem;
   box-shadow: 0 0 1px 0;
@@ -33,4 +36,9 @@
 }
 .add-task-input:focus {
   outline: 2px solid var(--task-outline-color);
+}
+.add-task__enter-icon {
+  position: absolute;
+  top: 7px;
+  right: 15px;
 }
