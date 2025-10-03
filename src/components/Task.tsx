@@ -9,8 +9,10 @@ interface TaskProps {
 }
 
 function Task({ task }: TaskProps) {
+  const { title, status } = task
+
   return (
-    <li className={`task ${task.status === 'done' ? 'task--done' : ''}`} contentEditable>{task.title}</li>
+    <li className={`task ${status === 'done' ? 'task--done' : ''}`} contentEditable>{title}</li>
   )
 }
 
