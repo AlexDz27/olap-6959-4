@@ -1,12 +1,16 @@
-export interface Task {
+export interface TaskI {
   id: number;
   title: string;
   status: 'pending' | 'inProgress' | 'done'
 }
 
-function Task({ id, title, status = 'pending' }: Task) {
+interface TaskProps {
+  task: TaskI
+}
+
+function Task({ task }: TaskProps) {
   return (
-    <li className={`task ${status === 'done' ? 'task--done' : ''}`} contentEditable>{title}</li>
+    <li className={`task ${task.status === 'done' ? 'task--done' : ''}`} contentEditable>{task.title}</li>
   )
 }
 

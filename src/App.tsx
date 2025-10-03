@@ -1,8 +1,8 @@
 import Header from './components/Header.tsx'
 import TasksGrid from './components/TasksGrid.tsx'
-import type { Task as TaskType} from './components/Task.tsx'
+import type { TaskI } from './components/Task.tsx'
 
-const tasks: TaskType[] = [
+const tasks: TaskI[] = [
   {
     id: 1,
     title: 'smth task 1 ts (prop)',
