@@ -1,3 +1,15 @@
+import type { TaskI } from './components/Tasks/Task'
+
+export function sortTasks(tasks: TaskI[]) {
+  const tasksSorted = {
+    pending: tasks.filter(t => t.status === 'pending'),
+    inProgress: tasks.filter(t => t.status === 'inProgress'),
+    done: tasks.filter(t => t.status === 'done')
+  }
+
+  return tasksSorted
+}
+
 /**
  * Function for converting words (e.g., task statuses) from camelCased strings into strings delimited using delimiter.
  * E.g., we can make kebab-case for CSS classes via hyphen or human readable text via space.

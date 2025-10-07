@@ -1,4 +1,5 @@
 import type { TaskI } from './Task'
+import { sortTasks } from '../../functions';
 import TasksColumn from './TasksColumn'
 
 interface TasksGridProps {
@@ -15,16 +16,6 @@ function TasksGrid({ tasks }: TasksGridProps) {
       <TasksColumn status="done" tasks={tasksSorted.done} />
     </main>
   )
-}
-
-function sortTasks(tasks: TaskI[]) {
-  const tasksSorted = {
-    pending: tasks.filter(t => t.status === 'pending'),
-    inProgress: tasks.filter(t => t.status === 'inProgress'),
-    done: tasks.filter(t => t.status === 'done')
-  }
-
-  return tasksSorted
 }
 
 export default TasksGrid
