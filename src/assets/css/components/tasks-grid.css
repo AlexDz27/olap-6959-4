@@ -12,3 +12,6 @@
   text-align: center;
   font-weight: 600;
 }
+.tasks-grid__col__title::first-letter {
+  text-transform: capitalize;
+}

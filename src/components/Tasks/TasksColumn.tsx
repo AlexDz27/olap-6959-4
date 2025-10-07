@@ -8,60 +8,53 @@ interface TasksColumnProps {
 }
 
 function TasksColumn({ status, tasks }: TasksColumnProps) {
-  let endingClassName
-  if (status === 'pending') {
-    endingClassName = 'tasks-grid__col--pending'
-  } else if (status === 'inProgress') {
-    endingClassName = 'tasks-grid__col--in-progress'
-  } else if (status === 'done') {
-    endingClassName = 'tasks-grid__col--done'
-  }
+  const aw = assembleWords
+
+  let modifierClassName = 'tasks-grid__col--' + aw(status, '-')
 
   return (
-    <section className={`tasks-grid__col ${endingClassName}`}>
-      <p className="tasks-grid__col__title">{status}</p>
+    <section className={`tasks-grid__col ${modifierClassName}`}>
+      <p className="tasks-grid__col__title">{aw(status, ' ')}</p>
       {status === 'pending' && <AddTask />}
       <ul className="tasks-list">
-        {tasks.length === 0 && <li className="no-tasks-yet">No {assembleWords(status, ' ')} tasks yet</li>}
+        {tasks.length === 0 && <li className="no-tasks-yet">No {aw(status, ' ')} tasks yet</li>}
         {tasks.map(t => <Task task={t} key={t.id} />)}
       </ul>
     </section>
   )
 }
 
+export default TasksColumn
+
+
 /**
  * Function for converting words (e.g., statuses) from camelCased strings into strings delimited using delimiter.
  * E.g., we can make kebab-case for CSS classes via hyphen or human readable text via space.
  */
-function assembleWords(camelCaseStr: string, delimiter: string): string {
+function assembleWords(str: string, delimiter: string): string {
   // Check if the string contains uppercase chars at all. If not, bail and return the string
-  let continueFlag = false
-  for (const char of camelCaseStr) {
-    if (isUppercase(char)) continueFlag = true
+  let isStringCamelCased = false
+  for (const char of str) {
+    if (isUppercase(char)) isStringCamelCased = true
   }
+  if (!isStringCamelCased) return str
 
-  if (!continueFlag) return camelCaseStr
-
-  if (continueFlag) {
-    const pieces = []
-
-    let piece = []
-    for (const char of camelCaseStr) {
+  const pieces = []
+  let piece: string[] = []
+  for (const char of str) {
+    if (isUppercase(char)) {
+      pieces.push(piece.join(''))
+      piece = [char.toLowerCase()]
+    } else {
       piece.push(char)
-      if (isUppercase(char)) {
-        pieces.push(piece.join(''))
-        piece = []
-      }
     }
-    console.log(pieces)
-
-    return '123'
   }
+  pieces.push(piece.join(''))
+  
+  return pieces.join(delimiter)
 
 
   function isUppercase(char: string) {
     return /^[A-Z]$/.test(char)
   }
 }
-
-export default TasksColumn
