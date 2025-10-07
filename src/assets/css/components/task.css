@@ -42,3 +42,9 @@
   top: 11px;
   right: 15px;
 }
+
+.no-tasks-yet {
+  text-align: center;
+  font-style: italic;
+  opacity: .7;
+}
