@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import Header from './components/Header.tsx'
-import TasksGrid from './components/TasksGrid.tsx'
+import TasksGrid from './components/Tasks/TasksGrid.tsx'
 // TODO: r)
-import type { TaskI } from './components/Task.tsx'
+import type { TaskI } from './components/Tasks/Task.tsx'
 
 const ERR_MSG_TEXT = 'Oops, sorry! Unexpected error occrured when trying to load your tasks.'
 
